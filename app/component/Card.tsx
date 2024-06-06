@@ -39,7 +39,7 @@ const Card = (props:productType) => {
     const toast = useToast()
 
     const deleteProduct = (async ()=>{
-      const res = await fetch("http://localhost:3000/e-comm/deleteProduct",{
+      const res = await fetch("https://nest-e-comm.vercel.app/e-comm/deleteProduct",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(deleteData)
@@ -68,7 +68,7 @@ const Card = (props:productType) => {
         })
       }
       setloading(true)
-      const res = await fetch("http://localhost:3000/e-comm/updateProduct",{
+      const res = await fetch("https://nest-e-comm.vercel.app/e-comm/updateProduct",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(productDetails)
@@ -93,7 +93,7 @@ const Card = (props:productType) => {
       const file = new FormData();
       file.append("file",e.target.files[0])
       file.append("_id",props._id)
-      const res = await fetch("http://localhost:3000/e-comm/updateImage",{
+      const res = await fetch("https://nest-e-comm.vercel.app/e-comm/updateImage",{
         method:"POST",
         body:file
       })

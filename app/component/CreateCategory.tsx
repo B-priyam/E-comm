@@ -31,7 +31,7 @@ const CreateCategory = (props:any) => {
                     position:"top"
                   })
             }
-        const res = await fetch("http://localhost:3000/category/createCategory",{
+        const res = await fetch("https://nest-e-comm.vercel.app/category/createCategory",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({name:categoryName})
@@ -52,7 +52,7 @@ const CreateCategory = (props:any) => {
     },[categoryName,toast])
 
     const deleteCategory = useCallback(async(id:any)=>{
-        const res = await fetch(`http://localhost:3000/category/deleteCategory/${id}`,
+        const res = await fetch(`https://nest-e-comm.vercel.app/category/deleteCategory/${id}`,
             {
                 method:"Delete",
             },               
@@ -81,7 +81,7 @@ const CreateCategory = (props:any) => {
           position:"top"
         })
       }
-        const res = await fetch("http://localhost:3000/category/editCategory",{
+        const res = await fetch("https://nest-e-comm.vercel.app/category/editCategory",{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify(editvalues)
@@ -92,7 +92,7 @@ const CreateCategory = (props:any) => {
     },[editvalues,setEditValues])
 
     const getCategories = async()=>{
-        const res = await fetch("http://localhost:3000/category/getAll")
+        const res = await fetch("https://nest-e-comm.vercel.app/category/getAll")
         const data = await res.json()
         setAllCategories(data)
     }

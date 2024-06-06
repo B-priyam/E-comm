@@ -35,13 +35,13 @@ const CreateProduct = (props:any)  => {
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
   const getCategories = async()=>{
-    const res = await fetch("http://localhost:3000/category/getAll")
+    const res = await fetch("https://nest-e-comm.vercel.app/category/getAll")
     const data = await res.json()
     setAllCategories(data)
 }
 
 const getSubCategories = useCallback(async()=>{
-  const res = await fetch(`http://localhost:3000/sub-category/getAllSubCategory?id=${productDetails.categoryId}`)
+  const res = await fetch(`https://nest-e-comm.vercel.app/sub-category/getAllSubCategory?id=${productDetails.categoryId}`)
   const data = await res.json()
   if(data.length > 0){
     setAllSubCategories(data)
@@ -66,7 +66,7 @@ useEffect(()=>{
   const uplaodBannerImage = async (i:any,id:string)=>{
     const formData = new FormData()
     formData.append("file",i)
-      const res = await fetch(`http://localhost:3000/e-comm/uploadImage/${id}`,{
+      const res = await fetch(`https://nest-e-comm.vercel.app/e-comm/uploadImage/${id}`,{
         method:"POST",
         body:formData     
   })
@@ -105,7 +105,7 @@ const sendData = async (e:any)=> {
       })
     }
   setIsLoading(true)
-    const res = await fetch("http://localhost:3000/e-comm/createNewProduct",{
+    const res = await fetch("https://nest-e-comm.vercel.app/e-comm/createNewProduct",{
       method:"POST",
       headers:{
         "Content-Type":"application/json",

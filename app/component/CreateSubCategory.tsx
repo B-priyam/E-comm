@@ -24,7 +24,7 @@ const CreateSubCategory = (props:any) => {
     },[props.modal,onOpen])
 
     const getCategory = async()=>{
-      const response = await fetch('http://localhost:3000/category/getAll')
+      const response = await fetch('https://nest-e-comm.vercel.app/category/getAll')
       const data = await response.json()
       setCategories(data)
     }
@@ -49,7 +49,7 @@ const CreateSubCategory = (props:any) => {
         })
       }
 
-        const res = await fetch("http://localhost:3000/sub-category/createNewSubCategory",{
+        const res = await fetch("https://nest-e-comm.vercel.app/sub-category/createNewSubCategory",{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify(newData)
@@ -70,7 +70,7 @@ const CreateSubCategory = (props:any) => {
 
 
     const getsubCategory =  useCallback(async()=>{
-      const res = await fetch(`http://localhost:3000/sub-category/getAllSubCategory?id=${newData.categoryId}`)
+      const res = await fetch(`https://nest-e-comm.vercel.app/sub-category/getAllSubCategory?id=${newData.categoryId}`)
       const data = await res.json()
       if(data.length < 1){
         setSubCategory(undefined)
@@ -80,7 +80,7 @@ const CreateSubCategory = (props:any) => {
     },[categoryChoosen,newData])
 
     const deleteCategory = useCallback(async(subCategory:any)=>{
-      const res = await fetch("http://localhost:3000/sub-category/deleteSubCategory",
+      const res = await fetch("https://nest-e-comm.vercel.app/sub-category/deleteSubCategory",
           {
               method:"Post",
               headers:{"Content-Type":"application/json"},
@@ -109,7 +109,7 @@ const CreateSubCategory = (props:any) => {
         position:"top"
       })
     }
-      const res = await fetch("http://localhost:3000/sub-category/updateSubCategory",{
+      const res = await fetch("https://nest-e-comm.vercel.app/sub-category/updateSubCategory",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(editvalues)

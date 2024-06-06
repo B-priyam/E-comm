@@ -88,9 +88,10 @@ const Card = (props:productType) => {
     })
 
     const updateImage = (async(e:any)=>{
+      if(!e.target.files || e.target.files.length === 0)return
       setloading(true)
       const file = new FormData();
-      file.append("file",e)
+      file.append("file",e.target.files[0])
       file.append("_id",props._id)
       const res = await fetch("http://localhost:3000/e-comm/updateImage",{
         method:"POST",
@@ -155,7 +156,7 @@ const Card = (props:productType) => {
           />
           <Input placeholder='product tags eg :- tag1 , tag2 , tag3' value={productDetails.Tags}
           onChange={(e)=>{handleTags(e.target.value)}}/>
-          <input required={true} className='py-3 pl-5'  type='file'  onChange={(e)=>{updateImage(e.target.files[0])}} />
+          <input required={true} className='py-3 pl-5'  type='file'  onChange={(e)=>{updateImage(e)}} />
           </ModalBody>
           <ModalFooter>
             <Button colorScheme='blue' variant={"outline"} mr={3} onClick={()=>setOpenEditModal(false)}>close</Button>

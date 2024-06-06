@@ -2,7 +2,6 @@
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Alert, AlertIcon, AlertTitle, Box, Button, FormControl, FormLabel, Input, InputGroup, InputLeftElement, InputRightElement, Menu, MenuButton, MenuItem, MenuList, ModalCloseButton, ModalFooter, ModalHeader, Stack, useToast } from '@chakra-ui/react'
 import React, { useCallback, useEffect, useState } from 'react'
-import Loading from './Loading'
 import { Modal, ModalBody, ModalContent, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react'
 
 
